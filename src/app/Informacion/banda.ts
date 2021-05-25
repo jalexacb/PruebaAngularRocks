@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 export interface Banda{
   id: string;
-  nombre: string;
+  nombre: String;
   descripcion: string;
   url_imagen: string;
   canciones: Array<Cancion>;

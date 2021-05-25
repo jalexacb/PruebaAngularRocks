@@ -1,1 +1,16 @@
-Listo
+<div class="container">
+    <div class="row mt-5">
+        <div class="card">
+            <div class="card-horizontal">
+                <div class="img-square-wrapper">
+                    <!-- <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap"> -->
+                    <img class="" width="300px" height="200px" [src]="banda.url_imagen" alt="Banda">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{banda.nombre}}</h4>
+                    <p class="card-text">{{banda.descripcion}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

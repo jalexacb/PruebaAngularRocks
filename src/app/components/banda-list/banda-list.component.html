@@ -5,6 +5,24 @@
             <h1 class="display-4">Listado de bandas</h1>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Buscar" [(ngModel)]="busqueda" (keyup.backspace)="onKeyBackSpace()" (keyup)="onSearch()" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 ml-auto">
+            <button type="button" class="btn btn-primary"  (click)="openModal(nuevoModal)" ngbTooltip="btn-primary">Crear canal</button>
+        </div>
+	</div>
     <div class="row">
         <div *ngFor="let banda of bandas; let i = index" class="col-xs-10 col-sm-6 col-md-4 mt-5 banda-card">
             <div class="card" style="width: 18rem;">
@@ -13,8 +31,81 @@
                   <h5 class="card-title">{{banda.nombre}}</h5>
                   <p class="card-text cortar-descripcion">{{banda.descripcion}}</p>
                   <a [routerLink] = "['/banda/detalle', banda.id]" class="btn btn-primary">Ver más...</a>
+                  <button type="button" class="btn btn-danger btn-md" (click)="eliminarBanda(i+1)">Eliminar</button>
+                  <button type="button" class="btn btn-secondary btn-md" (click)="openModalEditar(editarModal,banda.id)">Editar</button>
                 </div>
               </div>
         </div>
     </div>
 </div>
+
+<ng-template #editarModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Nueva Banda</h4>
+      <button type="button" class="close pull-right btn" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputPassword4">Nombre</label>
+                <input type="text" class="form-control" name="nombre" required [(ngModel)]="banda.nombre" id="inputPassword4" placeholder="Nombre">
+            </div>
+           
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputPassword4">Url Media</label>
+                <input type="text" class="form-control" name="nombre" required [(ngModel)]="banda.url_imagen" id="inputPassword4" placeholder="Nombre">
+            </div>
+           
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputPassword4">Descripción</label>
+                <textarea type="text" class="form-control" name="descripcion" [(ngModel)]="banda.descripcion"  id="inputPassword4" placeholder="Descripción"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-success" (click)="guardarBanda()">Guardar</button>
+    </div>
+  </ng-template>
+
+  
+<ng-template #nuevoModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Editar Banda</h4>
+      <button type="button" class="close pull-right btn" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputPassword4">Nombre</label>
+                <input type="text" class="form-control" name="nombre" required [(ngModel)]="banda.nombre" id="inputPassword4" placeholder="Nombre">
+            </div>
+           
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputPassword4">Url Media</label>
+                <input type="text" class="form-control" name="nombre" required [(ngModel)]="banda.url_imagen" id="inputPassword4" placeholder="Nombre">
+            </div>
+           
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputPassword4">Descripción</label>
+                <textarea type="text" class="form-control" name="descripcion" [(ngModel)]="banda.descripcion"  id="inputPassword4" placeholder="Descripción"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-success" (click)="editarBanda()">Guardar</button>
+    </div>
+  </ng-template>

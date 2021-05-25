@@ -10,7 +10,7 @@ import { BandaItem } from './Informacion/banda';
 import { BandaDetalleComponent } from './components/banda-detalle/banda-detalle.component';
 import { RouterModule } from '@angular/router';
 import { BandaListComponent } from './components/banda-list/banda-list.component';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +25,7 @@ import { BandaListComponent } from './components/banda-list/banda-list.component
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ModalModule.forRoot(),
     //Módulos externos
     // RouterModule,
     
