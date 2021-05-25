@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { BandaService } from 'src/app/core/services/banda.service';
-import { Banda } from 'src/app/Informacion/banda';
+import { Banda } from 'src/app/shared/models/banda';
 
 @Component({
   selector: 'app-banda-list',
@@ -38,7 +38,7 @@ export class BandaListComponent implements OnInit {
   }
 
   onSearch(){
-    this.bandas = this.bandasOriginal.filter(band => band.nombre.toLocaleUpperCase().trim().includes(this.busqueda.toUpperCase().trim()));
+    this.bandas = this.bandas.filter(band => band.nombre.toLocaleUpperCase().trim().includes(this.busqueda.toUpperCase().trim()));
   }
 
   onKeyBackSpace(){
@@ -64,7 +64,9 @@ export class BandaListComponent implements OnInit {
   }
 
   guardarBanda(){
-    this.bandasOriginal.push(this.banda);
+    
+    this.bandas.push(this.banda);
+    this.banda = Object();
     this.modalRef.hide();
   }
 

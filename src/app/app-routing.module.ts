@@ -16,6 +16,8 @@ const routes: Routes = [
         path: 'banda/detalle/:id',
         component: BandaDetalleComponent
       },
+      { path: '',   redirectTo: 'banda', pathMatch: 'full' },
+      { path: "**", pathMatch: "full", redirectTo: "banda" }
     ]
   }
 ];

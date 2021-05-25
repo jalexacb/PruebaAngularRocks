@@ -4,6 +4,8 @@ export interface Banda{
   id: string;
   nombre: String;
   descripcion: string;
+  generos: string;
+  actividad: string;
   url_imagen: string;
   canciones: Array<Cancion>;
 }

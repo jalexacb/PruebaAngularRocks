@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="col-md-2 ml-auto">
-            <button type="button" class="btn btn-primary"  (click)="openModal(nuevoModal)" ngbTooltip="btn-primary">Crear canal</button>
+            <button type="button" class="btn btn-primary"  (click)="openModal(nuevoModal)" ngbTooltip="btn-primary">Nueva banda</button>
         </div>
 	</div>
     <div class="row">
@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<ng-template #editarModal>
+<ng-template #nuevoModal>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Nueva Banda</h4>
       <button type="button" class="close pull-right btn" aria-label="Close" (click)="modalRef.hide()">
@@ -75,7 +75,7 @@
   </ng-template>
 
   
-<ng-template #nuevoModal>
+<ng-template #editarModal>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Editar Banda</h4>
       <button type="button" class="close pull-right btn" aria-label="Close" (click)="modalRef.hide()">
