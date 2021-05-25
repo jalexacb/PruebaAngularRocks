@@ -1,0 +1,10 @@
+.banda-card img{
+    height: 200px;
+}
+
+.cortar-descripcion {
+    height: 30px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
