@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="card">
+            <img  class="card-img-top"  width="100%" height="200px" [src]="banda.url_imagen" alt="Banda">
+         
+            <div class="card-body">
+                <h4 class="card-title">{{banda.nombre}} - <small class="text-muted">{{banda.generos}}</small></h4>
+                <p class="card-text">{{banda.descripcion}}</p>
+            </div>
+            <div class="card-footer text-center">
+                <small class="text-muted ">{{banda.actividad}}</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4" *ngIf="enlace">
+        <div class="col-sm-12">
+            <p>
+                <iframe [src]='getVideoIframe()' frameborder="0" allowfullscreen width="100%" height="100%"></iframe>
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Canción</th>
+                            <th>Enlace</th>
+                            <th></th>
+                        </tr>
+                       
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cancion of banda.canciones; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{cancion.nombre}}</td>
+                            <td>{{cancion.url_video}}</td>
+                            <td><button class="btn btn-danger" (click)="verVideo(cancion.url_video)">Ver vídeo</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+       
+    </div>
+</div>
